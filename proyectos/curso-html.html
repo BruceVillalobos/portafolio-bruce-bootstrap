@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de HTML | Proyecto de Bruce</title>
+  <meta name="description" content="Landing page del curso básico de HTML5: temario, beneficios y formulario de inscripción.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/tema.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-body border-bottom" aria-label="Menú principal">
+      <div class="container">
+        <a class="navbar-brand logo" href="../index.html">Portafolio <span>Bruce</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir o cerrar el menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../sobre-mi.html">Sobre mí</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="../proyectos.html">Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../habilidades.html">Habilidades</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 ms-lg-3 pb-2 pb-lg-0">
+            <a class="btn btn-wa btn-sm rounded-pill px-3 fw-semibold" href="https://wa.me/51958869705" target="_blank" rel="noopener">WhatsApp</a>
+            
+            <div class="dropdown">
+              <button class="btn btn-ajustes btn-sm rounded-pill px-3 fw-semibold dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" id="btn-ajustes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill me-1" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                </svg>
+                Ajustes
+              </button>
+              <div class="dropdown-menu dropdown-menu-end p-3 ajustes-menu shadow-lg border-0" aria-labelledby="btn-ajustes">
+                <p class="fw-bold mb-3 text-primary" style="font-size: 0.9rem;">Ajustes de visualización</p>
+                
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="fw-medium" style="font-size: 0.95rem;">Modo oscuro</span>
+                  <label class="switch-tema" aria-label="Cambiar modo oscuro">
+                    <input type="checkbox" id="ajuste-oscuro">
+                    <span class="slider rounded-pill">
+                      <span class="thumb">
+                        <svg class="icon-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <svg class="icon-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                
+                <hr class="my-2">
+                
+                <div class="small fw-bold mb-2 text-muted" id="etq-tam">Tamaño del texto</div>
+                <div class="btn-group btn-group-sm w-100 shadow-sm" role="group" aria-labelledby="etq-tam">
+                  <button type="button" class="btn btn-outline-primary" data-tam="peq" aria-pressed="false" aria-label="Texto pequeño">A−</button>
+                  <button type="button" class="btn btn-outline-primary" data-tam="normal" aria-pressed="true" aria-label="Texto normal">A</button>
+                  <button type="button" class="btn btn-outline-primary" data-tam="grande" aria-pressed="false" aria-label="Texto grande">A+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="portada">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-8">
+            <h1>Curso de HTML básico</h1>
+            <p class="rol">Diseño y estructura de páginas web</p>
+            <p>Un curso introductorio para quienes quieren dar sus primeros pasos en el desarrollo web con HTML5.</p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-light rounded-pill px-4 fw-semibold" href="#inscripcion">Inscribirme</a>
+              <a class="btn btn-outline-light rounded-pill px-4 fw-semibold" href="#temario">Ver temario</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <aside class="perfil reveal">
+              <div class="avatar avatar-texto">HTML5</div>
+              <h2>Duración: 6 semanas</h2>
+              <p>Modalidad virtual, nivel inicial</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="reveal text-center mb-4">¿De qué trata el curso?</h2>
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-3">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Duración</h3>
+              <p>6 semanas con 2 sesiones semanales de una hora.</p>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Modalidad</h3>
+              <p>Clases virtuales en vivo y ejercicios para practicar en casa.</p>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Nivel</h3>
+              <p>Inicial. No necesitas conocimientos previos de programación.</p>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Material</h3>
+              <p>Apuntes, ejemplos de código y proyectos guiados paso a paso.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="temario" class="bg-body-tertiary">
+      <div class="container">
+        <h2 class="reveal text-center mb-4">Temario del curso</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Módulo 1: Introducción</h3>
+              <ul class="puntos">
+                <li>¿Qué es HTML y para qué sirve?</li>
+                <li>Estructura básica de un documento HTML5.</li>
+                <li>Etiquetas, atributos y anidamiento.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Módulo 2: Texto y enlaces</h3>
+              <ul class="puntos">
+                <li>Encabezados, párrafos y listas.</li>
+                <li>Enlaces internos y externos.</li>
+                <li>Imágenes y atributo alt.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Módulo 3: Estructura semántica</h3>
+              <ul class="puntos">
+                <li>Etiquetas header, nav, main, section y footer.</li>
+                <li>Organización del contenido.</li>
+                <li>Accesibilidad básica.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Módulo 4: Formularios</h3>
+              <ul class="puntos">
+                <li>Campos de entrada, etiquetas y botones.</li>
+                <li>Validación básica con HTML.</li>
+                <li>Construcción de una página completa.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="reveal text-center mb-4">Beneficios de estudiar conmigo</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Aprendizaje práctico</h3>
+              <p>Cada clase termina con un ejercicio aplicado a un caso real.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>A tu ritmo</h3>
+              <p>Las grabaciones quedan disponibles para repasar cuando quieras.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="caja card h-100 p-4 reveal">
+              <h3>Buenas prácticas</h3>
+              <p>Desde el inicio aprenderás HTML semántico y accesible.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inscripcion" class="bg-body-tertiary">
+      <div class="container">
+        <h2 class="reveal text-center mb-4">Solicita información</h2>
+        <p class="text-center mb-4">Completa el formulario y me pondré en contacto contigo.</p>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form action="mailto:brucealfredor@gmail.com" method="post" enctype="text/plain" class="caja card card-body p-4 reveal">
+              <div class="mb-3">
+                <label for="c-nombre" class="form-label fw-semibold">Nombre completo</label>
+                <input type="text" id="c-nombre" name="nombre" placeholder="Tu nombre" required class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="c-correo" class="form-label fw-semibold">Correo electrónico</label>
+                <input type="email" id="c-correo" name="correo" placeholder="tucorreo@ejemplo.com" required class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="c-mensaje" class="form-label fw-semibold">¿Qué te gustaría aprender?</label>
+                <textarea id="c-mensaje" name="mensaje" placeholder="Cuéntame un poco sobre ti" class="form-control" rows="4"></textarea>
+              </div>
+              <button class="btn btn-primary rounded-pill px-4 fw-semibold align-self-start" type="submit">Solicitar información</button>
+            </form>
+            <div class="d-flex flex-wrap gap-2 mt-4 justify-content-center">
+              <a class="btn btn-outline-primary rounded-pill px-4 fw-semibold" href="../proyectos.html">Volver al portafolio</a>
+              <a class="btn btn-outline-primary rounded-pill px-4 fw-semibold" href="menu-digital.html">Siguiente proyecto</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-5">
+          <a class="logo" href="../index.html">Portafolio <span>Bruce</span></a>
+          <strong>Bruce Villalobos Vilcamiza</strong>
+          <p>© 2026 Bruce Villalobos. Todos los derechos reservados.</p>
+        </div>
+        <nav class="col-md-7" aria-label="Enlaces del pie de página">
+          <ul class="nav justify-content-md-end">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../sobre-mi.html">Sobre mí</a></li>
+            <li class="nav-item"><a class="nav-link" href="../proyectos.html">Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../habilidades.html">Habilidades</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/BruceVillalobos" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="credito">Diseñado y desarrollado con HTML5, CSS3 y Bootstrap 5.3.</p>
+    </div>
+  </footer>
+
+  <a class="wa-flotante" href="https://wa.me/51958869705" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+    </svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="../js/ajustes.js" defer></script>
+</body>
+</html>
