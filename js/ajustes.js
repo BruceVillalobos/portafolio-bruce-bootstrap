@@ -5,7 +5,7 @@
   const KEYS = { tema: 'tema', tam: 'tam' };
 
   const botonOscuro = document.getElementById('ajuste-oscuro');
-  const botonesTam = document.querySelectorAll('[data-tam]');
+  const botonesTam = document.querySelectorAll('button[data-tam]');
   const elementosReveal = document.querySelectorAll('.reveal');
 
   let observador = null;

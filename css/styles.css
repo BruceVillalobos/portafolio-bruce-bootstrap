@@ -343,3 +343,20 @@ html[data-anim="off"] *, html[data-anim="off"] *::before, html[data-anim="off"] 
   animation: none !important; transition: none !important; 
 }
 html[data-anim="off"] .reveal { opacity: 1 !important; }
+/* Accesibilidad: foco visible en el interruptor y contraste en botones outline */
+.switch-tema input:focus-visible + .slider { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+.btn-outline-primary {
+  --bs-btn-color: var(--acento);
+  --bs-btn-border-color: var(--acento);
+  --bs-btn-hover-bg: var(--acento);
+  --bs-btn-hover-border-color: var(--acento);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--acento);
+  --bs-btn-active-border-color: var(--acento);
+  --bs-btn-active-color: #fff;
+}
+[data-bs-theme="dark"] .btn-outline-primary {
+  --bs-btn-hover-color: #052A6E;
+  --bs-btn-active-color: #052A6E;
+}
