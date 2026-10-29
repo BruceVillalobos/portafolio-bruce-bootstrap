@@ -63,7 +63,7 @@
                 
                 <hr class="my-2">
                 
-                <div class="small fw-bold mb-2 text-muted" id="etq-tam">Tamaño del texto</div>
+                <div class="small fw-bold mb-2 text-body-secondary" id="etq-tam">Tamaño del texto</div>
                 <div class="btn-group btn-group-sm w-100 shadow-sm" role="group" aria-labelledby="etq-tam">
                   <button type="button" class="btn btn-outline-primary" data-tam="peq" aria-pressed="false" aria-label="Texto pequeño">A−</button>
                   <button type="button" class="btn btn-outline-primary" data-tam="normal" aria-pressed="true" aria-label="Texto normal">A</button>
@@ -213,20 +213,23 @@
         <p class="text-center mb-4">Completa el formulario y me pondré en contacto contigo.</p>
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <form action="mailto:brucealfredor@gmail.com" method="post" enctype="text/plain" class="caja card card-body p-4 reveal">
+            <form class="caja card card-body p-4 reveal" data-correo="brucealfredor@gmail.com" data-asunto="Solicitud de información: Curso de HTML" novalidate>
               <div class="mb-3">
                 <label for="c-nombre" class="form-label fw-semibold">Nombre completo</label>
-                <input type="text" id="c-nombre" name="nombre" placeholder="Tu nombre" required class="form-control">
+                <input type="text" id="c-nombre" name="nombre" placeholder="Tu nombre" required class="form-control" autocomplete="name">
+                <div class="invalid-feedback">Escribe tu nombre.</div>
               </div>
               <div class="mb-3">
                 <label for="c-correo" class="form-label fw-semibold">Correo electrónico</label>
-                <input type="email" id="c-correo" name="correo" placeholder="tucorreo@ejemplo.com" required class="form-control">
+                <input type="email" id="c-correo" name="correo" placeholder="tucorreo@ejemplo.com" required class="form-control" autocomplete="email">
+                <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre@correo.com.</div>
               </div>
               <div class="mb-3">
                 <label for="c-mensaje" class="form-label fw-semibold">¿Qué te gustaría aprender?</label>
                 <textarea id="c-mensaje" name="mensaje" placeholder="Cuéntame un poco sobre ti" class="form-control" rows="4"></textarea>
               </div>
               <button class="btn btn-primary rounded-pill px-4 fw-semibold align-self-start" type="submit">Solicitar información</button>
+              <div class="alert alert-success mt-3 d-none" id="aviso-envio" role="status" tabindex="-1">Se abrió tu programa de correo con el mensaje listo para enviar. Si no se abrió, <a class="alert-link" href="https://wa.me/51958869705" target="_blank" rel="noopener">escríbeme por WhatsApp</a>.</div>
             </form>
             <div class="d-flex flex-wrap gap-2 mt-4 justify-content-center">
               <a class="btn btn-outline-primary rounded-pill px-4 fw-semibold" href="../proyectos.html">Volver al portafolio</a>
@@ -271,5 +274,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="../js/ajustes.js" defer></script>
+  <script src="../js/formulario.js" defer></script>
 </body>
 </html>

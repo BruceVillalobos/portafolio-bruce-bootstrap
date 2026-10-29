@@ -340,6 +340,8 @@ ul.puntos li::before {
   .portada, .avatar, .wa-flotante { animation: none; }
   /* Las demás se mantienen, pero solo con desvanecimiento (sin desplazamiento) */
   .reveal.visible { animation-name: aparecerSuave; }
+  /* Animaciones de interacción: se quitan (el resultado de la acción sigue visible) */
+  .btn-wa:hover, .rebote, .entra { animation: none; }
 }
 @keyframes aparecerSuave { from { opacity: 0; } to { opacity: 1; } }
 html[data-anim="off"] *, html[data-anim="off"] *::before, html[data-anim="off"] *::after { 
@@ -381,3 +383,13 @@ html[data-anim="off"] .reveal { opacity: 1 !important; }
 }
 .linea-tiempo li:hover::before { transform: scale(1.2); }
 .linea-tiempo h3 { margin-bottom: .3rem; }
+
+/* Animaciones que reaccionan a la interacción del usuario (@keyframes) */
+.dropdown-menu.show { animation: aparecerSuave .25s ease-out; }                 /* abrir Ajustes */
+.accordion-collapse.show .accordion-body { animation: aparecer .45s ease-out; } /* abrir una pregunta */
+.btn-wa:hover { animation: latido .6s ease; }                                   /* pasar el mouse por WhatsApp */
+.rebote { animation: rebote .45s ease; }                                        /* clic en un filtro */
+.entra  { animation: aparecer .5s ease-out backwards; }                         /* contenido que entra al filtrar o enviar */
+
+@keyframes latido { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.12); } 60% { transform: scale(.97); } }
+@keyframes rebote { 0% { transform: scale(1); } 40% { transform: scale(1.15); } 70% { transform: scale(.95); } 100% { transform: scale(1); } }
