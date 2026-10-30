@@ -5,7 +5,7 @@
   const formulario = document.querySelector('form[data-correo]');
   if (!formulario) return;
 
-  const aviso = document.getElementById('aviso-envio');
+  const ctaBanner = document.getElementById('cta-banner-envio');
 
   formulario.addEventListener('submit', (evento) => {
     evento.preventDefault();
@@ -28,10 +28,10 @@
     const campoAsunto = document.getElementById('asunto');
     const asunto = campoAsunto ? campoAsunto.value : formulario.dataset.asunto;
 
-    if (aviso) {
-      aviso.classList.remove('d-none');
-      aviso.classList.add('entra');
-      aviso.focus();
+    if (ctaBanner) {
+      ctaBanner.classList.remove('d-none');
+      ctaBanner.classList.add('enter');
+      ctaBanner.focus();
     }
 
     window.location.href = 'mailto:' + formulario.dataset.correo +

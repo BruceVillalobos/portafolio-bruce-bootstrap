@@ -17,7 +17,7 @@
     secciones.forEach((seccion) => {
       const oculta = valor !== 'todos' && seccion.dataset.categoria !== valor;
       seccion.hidden = oculta;
-      if (!oculta) animar(seccion.querySelector('.row'), 'entra');
+      if (!oculta) animar(seccion.querySelector('.row'), 'enter');
     });
 
     botones.forEach((boton) => {
@@ -25,7 +25,7 @@
       boton.setAttribute('aria-pressed', activo ? 'true' : 'false');
       boton.classList.toggle('btn-primary', activo);
       boton.classList.toggle('btn-outline-primary', !activo);
-      if (activo) animar(boton, 'rebote');
+      if (activo) animar(boton, 'bounce');
     });
 
     if (estado) {

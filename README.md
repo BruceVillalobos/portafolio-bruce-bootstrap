@@ -19,7 +19,7 @@ img/ · favicon.svg
 
 - Estructura semántica: `header`, `nav`, `main`, `section`, `article`, `aside`, `footer` y jerarquía de encabezados h1 → h3.
 - Accesibilidad: enlace "Saltar al contenido", `aria-current` en el enlace activo, `alt` en las imágenes, `label` en todos los campos, foco visible, contraste AA y `role="switch"` en el modo oscuro. Auditado con axe-core sin errores.
-- Navegación principal y de pie de página, más enlaces de anterior/siguiente en los proyectos.
+- Navegación principal y de site-footer de página, más enlaces de anterior/siguiente en los proyectos.
 - Configuración útil para el usuario (menú **Ajustes**): modo oscuro y tamaño del texto (A−, A, A+), guardados en el navegador. Respeta `prefers-color-scheme` y `prefers-reduced-motion`.
 - Estructura creativa: línea de tiempo en *Sobre mí* y filtro por categoría en el *Menú digital*.
 - Optimización: imágenes livianas con `width` y `height`, carga diferida fuera de pantalla y fuentes con `display=swap`.
