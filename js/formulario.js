@@ -1,41 +1,51 @@
-/* Validación con Bootstrap y envío por correo (sin servicios externos) */
-(function () {
-  'use strict';
+// Validación y envío del formulario por correo
+var formulario = document.querySelector('form[data-correo]');
+var ctaBanner = document.getElementById('cta-banner-envio');
 
-  const formulario = document.querySelector('form[data-correo]');
-  if (!formulario) return;
-
-  const ctaBanner = document.getElementById('cta-banner-envio');
-
-  formulario.addEventListener('submit', (evento) => {
+if (formulario) {
+  formulario.addEventListener('submit', function (evento) {
     evento.preventDefault();
 
+    // Validar campos obligatorios
     if (!formulario.checkValidity()) {
       formulario.classList.add('was-validated');
-      const primerError = formulario.querySelector(':invalid');
-      if (primerError) primerError.focus();
+      var primerError = formulario.querySelector(':invalid');
+      if (primerError) {
+        primerError.focus();
+      }
       return;
     }
 
     formulario.classList.remove('was-validated');
 
-    let cuerpo = '';
-    formulario.querySelectorAll('.form-control').forEach((campo) => {
-      const etiqueta = formulario.querySelector('label[for="' + campo.id + '"]');
-      cuerpo += (etiqueta ? etiqueta.textContent : campo.name) + ': ' + campo.value + '\n';
+    // Armar el cuerpo del correo
+    var cuerpo = '';
+    var campos = formulario.querySelectorAll('.form-control');
+    campos.forEach(function (campo) {
+      var etiqueta = formulario.querySelector('label[for="' + campo.id + '"]');
+      var nombre = campo.name;
+      if (etiqueta) {
+        nombre = etiqueta.textContent;
+      }
+      cuerpo = cuerpo + nombre + ': ' + campo.value + '\n';
     });
 
-    const campoAsunto = document.getElementById('asunto');
-    const asunto = campoAsunto ? campoAsunto.value : formulario.dataset.asunto;
+    // Asunto
+    var campoAsunto = document.getElementById('asunto');
+    var asunto = formulario.dataset.asunto;
+    if (campoAsunto) {
+      asunto = campoAsunto.value;
+    }
 
+    // Mostrar banner de confirmación
     if (ctaBanner) {
       ctaBanner.classList.remove('d-none');
-      ctaBanner.classList.add('enter');
       ctaBanner.focus();
     }
 
+    // Abrir el correo
     window.location.href = 'mailto:' + formulario.dataset.correo +
       '?subject=' + encodeURIComponent(asunto) +
       '&body=' + encodeURIComponent(cuerpo);
   });
-})();
+}

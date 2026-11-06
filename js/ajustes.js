@@ -1,86 +1,61 @@
-(function () {
-  'use strict';
+// Botones de tema oscuro y tamaño de letra
+var root = document.documentElement;
+var botonOscuro = document.getElementById('ajuste-oscuro');
+var botonesTam = document.querySelectorAll('button[data-tam]');
 
-  const root = document.documentElement;
-  const KEYS = { tema: 'tema', tam: 'tam' };
+// Marca visualmente el botón de tamaño activo
+function marcarBotonTam() {
+  var actual = root.getAttribute('data-tam');
+  botonesTam.forEach(function (boton) {
+    if (boton.getAttribute('data-tam') === actual) {
+      boton.setAttribute('aria-pressed', 'true');
+      boton.classList.add('active');
+    } else {
+      boton.setAttribute('aria-pressed', 'false');
+      boton.classList.remove('active');
+    }
+  });
+}
 
-  const botonOscuro = document.getElementById('ajuste-oscuro');
-  const botonesTam = document.querySelectorAll('button[data-tam]');
-  const elementosReveal = document.querySelectorAll('.reveal');
-
-  let observador = null;
-
-  function guardar(key, value) {
-    try {
-      localStorage.setItem(key, value);
-    } catch (error) {}
-  }
-
-  function marcarBotonTam() {
-    const actual = root.getAttribute('data-tam');
-    botonesTam.forEach((boton) => {
-      const activo = boton.getAttribute('data-tam') === actual;
-      boton.setAttribute('aria-pressed', activo ? 'true' : 'false');
-      boton.classList.toggle('active', activo);
-    });
-  }
-
-  function aplicarTamano(valor) {
-    if (!['peq', 'normal', 'grande'].includes(valor)) return;
+// Cambiar tamaño
+botonesTam.forEach(function (boton) {
+  boton.addEventListener('click', function () {
+    var valor = boton.getAttribute('data-tam');
     root.setAttribute('data-tam', valor);
-    guardar(KEYS.tam, valor);
+    localStorage.setItem('tam', valor);
     marcarBotonTam();
-  }
+  });
+});
 
-  function aplicarTema(valor) {
-    root.setAttribute('data-bs-theme', valor);
-    guardar(KEYS.tema, valor);
+// Cambiar tema oscuro
+if (botonOscuro) {
+  if (root.getAttribute('data-bs-theme') === 'dark') {
+    botonOscuro.checked = true;
   }
-
-  function observar() {
-    if (!('IntersectionObserver' in window)) {
-      elementosReveal.forEach((el) => el.classList.add('visible'));
-      return;
+  botonOscuro.addEventListener('change', function () {
+    if (botonOscuro.checked) {
+      root.setAttribute('data-bs-theme', 'dark');
+      localStorage.setItem('tema', 'dark');
+    } else {
+      root.setAttribute('data-bs-theme', 'light');
+      localStorage.setItem('tema', 'light');
     }
+  });
+}
 
-    if (observador) observador.disconnect();
+// Animación de aparición al hacer scroll
+var elementosReveal = document.querySelectorAll('.reveal');
 
-    observador = new IntersectionObserver(
-      (entradas) => {
-        entradas.forEach((entrada) => {
-          if (entrada.isIntersecting) {
-            entrada.target.classList.add('visible');
-            observador.unobserve(entrada.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    elementosReveal.forEach((el) => {
-      if (!el.classList.contains('visible')) observador.observe(el);
-    });
-  }
-
-  function init() {
-    if (botonOscuro) {
-      botonOscuro.checked = root.getAttribute('data-bs-theme') === 'dark';
-      botonOscuro.addEventListener('change', (event) => {
-        aplicarTema(event.target.checked ? 'dark' : 'light');
-      });
+function mostrarAlScroll() {
+  elementosReveal.forEach(function (el) {
+    var posicion = el.getBoundingClientRect().top;
+    if (posicion < window.innerHeight - 40) {
+      el.classList.add('visible');
     }
+  });
+}
 
-    botonesTam.forEach((boton) => {
-      boton.addEventListener('click', () => aplicarTamano(boton.getAttribute('data-tam')));
-    });
+window.addEventListener('scroll', mostrarAlScroll);
+mostrarAlScroll();
 
-    marcarBotonTam();
-    observar();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+marcarBotonTam();

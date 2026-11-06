@@ -1,40 +1,42 @@
-/* Filtro por categoría del menú digital, con animación al interactuar */
-(function () {
-  'use strict';
+// Filtro por categoría del menú
+var botones = document.querySelectorAll('button[data-filtro]');
+var secciones = document.querySelectorAll('section[data-categoria]');
+var estado = document.getElementById('estado-filtro');
 
-  const botones = document.querySelectorAll('button[data-filtro]');
-  const secciones = document.querySelectorAll('section[data-categoria]');
-  const estado = document.getElementById('estado-filtro');
+function filtrar(valor) {
+  // Mostrar u ocultar secciones
+  secciones.forEach(function (seccion) {
+    if (valor === 'todos' || seccion.dataset.categoria === valor) {
+      seccion.hidden = false;
+    } else {
+      seccion.hidden = true;
+    }
+  });
 
-  function animar(elemento, clase) {
-    elemento.classList.remove(clase);
-    void elemento.offsetWidth;            /* reinicia la animación */
-    elemento.classList.add(clase);
-    elemento.addEventListener('animationend', () => elemento.classList.remove(clase), { once: true });
-  }
+  // Marcar botón activo
+  botones.forEach(function (boton) {
+    if (boton.dataset.filtro === valor) {
+      boton.setAttribute('aria-pressed', 'true');
+      boton.classList.add('btn-primary');
+      boton.classList.remove('btn-outline-primary');
+    } else {
+      boton.setAttribute('aria-pressed', 'false');
+      boton.classList.remove('btn-primary');
+      boton.classList.add('btn-outline-primary');
+    }
+  });
 
-  function filtrar(valor) {
-    secciones.forEach((seccion) => {
-      const oculta = valor !== 'todos' && seccion.dataset.categoria !== valor;
-      seccion.hidden = oculta;
-      if (!oculta) animar(seccion.querySelector('.row'), 'enter');
-    });
-
-    botones.forEach((boton) => {
-      const activo = boton.dataset.filtro === valor;
-      boton.setAttribute('aria-pressed', activo ? 'true' : 'false');
-      boton.classList.toggle('btn-primary', activo);
-      boton.classList.toggle('btn-outline-primary', !activo);
-      if (activo) animar(boton, 'bounce');
-    });
-
-    if (estado) {
-      const nombre = document.querySelector('button[data-filtro="' + valor + '"]').textContent;
-      estado.textContent = 'Mostrando: ' + nombre;
+  // Texto de estado
+  if (estado) {
+    var botonActivo = document.querySelector('button[data-filtro="' + valor + '"]');
+    if (botonActivo) {
+      estado.textContent = 'Mostrando: ' + botonActivo.textContent;
     }
   }
+}
 
-  botones.forEach((boton) => {
-    boton.addEventListener('click', () => filtrar(boton.dataset.filtro));
+botones.forEach(function (boton) {
+  boton.addEventListener('click', function () {
+    filtrar(boton.dataset.filtro);
   });
-})();
+});
